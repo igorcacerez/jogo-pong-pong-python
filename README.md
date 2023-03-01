@@ -9,4 +9,4 @@ Tendo o python instalado em seu computado basta rodar o comando no terminal, **p
 
 ## Demonstração
 
-![sesi](https://user-images.githubusercontent.com/29128449/210409646-ff2d4de0-2ccd-4a14-800a-40c4fc74ac27.gif)
+![sesi](https://github.com/igorcacerez/jogo-pong-pong-python/blob/main/assets/dino.gif?raw=true)
