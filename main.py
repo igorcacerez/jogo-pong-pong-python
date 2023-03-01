@@ -13,6 +13,7 @@ player1_speed = 7
 p2_img = pygame.image.load("assets/user-2.png")
 player2 = p2_img.get_rect(right=1280)
 player2_score = 0
+player2_speed = 7
 
 ball_img = pygame.image.load("assets/bola.png")
 ball = ball_img.get_rect(center=[1280 / 2, 720 /2])
@@ -48,8 +49,12 @@ while loop:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w or event.key == pygame.K_s:
                     player1_speed *= -1 
+                    
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                    player2_speed *= -1 
         
-        if player2_score >= 3:
+        if player2_score >= 3 or player1_score >= 3:
            cena = "gameover"
 
         if ball.colliderect(player1) or ball.colliderect(player2):
@@ -82,12 +87,19 @@ while loop:
         ball.x += ball_dir_x 
         ball.y += ball_dir_y 
 
-        player2.y = ball.y - 75
+        # player2.y = ball.y - 75
+
+        # if player2.y <= 0:
+        #     player2.y = 0
+        # elif player2.y >= 720 - 150:
+        #     player2.y = 720 - 150
 
         if player2.y <= 0:
             player2.y = 0
         elif player2.y >= 720 - 150:
             player2.y = 720 - 150
+
+        player2.y += player2_speed
 
         display.fill((0,0,0))
         display.blit(campo_img, campo)
@@ -105,9 +117,16 @@ while loop:
                 if event.key == pygame.K_RETURN:
                     cena = "menu"
 
-        display.fill((0,0,0))
-        text_win = font.render("Game Over", True, "red")
-        display.blit(text_win, [(540), 360])
+        display.fill((107, 100, 189))
+        
+        if player1_score > player2_score: 
+            txt = "O Player 1 é o ganhado!"
+        else: 
+            txt = "O Player 2 é o ganhador!"
+            
+        text_win = font.render(txt, True, "black")
+        text_rect = text_win.get_rect(center = (1208 // 2, 720 // 2))
+        display.blit(text_win, text_rect)
 
     elif cena == "menu":
         for event in pygame.event.get():
