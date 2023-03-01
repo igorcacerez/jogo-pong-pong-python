@@ -1,10 +1,10 @@
-# Jogo Pong Pongo
+# Jogo Pong Pong
 
 Jogo simples feito em Python utilizando a biblioteca PyGame. 
 
 # Para usar
 
-Tendo o python instalado em seu computado basta rodar o comando no terminal, **python main.py**, dentro da pasta do projeto.
+Tendo o python instalado em seu computado, basta rodar o seguinte comando  **python main.py** em seu terminal, dentro da pasta do projeto.
 
 
 ## Demonstração
